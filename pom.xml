@@ -59,6 +59,12 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.22.1</version>
+        <configuration>
+          <environmentVariables>
+            <MATSIM_INPUT>test/input</MATSIM_INPUT>
+            <MATSIM_OUTPUT>test/output</MATSIM_OUTPUT>
+          </environmentVariables>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>

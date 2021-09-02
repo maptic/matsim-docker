@@ -1,20 +1,26 @@
 package ch.maptic.matsim.docker;
 
-import static org.junit.Assert.assertTrue;
-
+import org.junit.Assert;
 import org.junit.Test;
+import org.apache.log4j.Logger;
 
 /**
  * Unit test for DockerEntrypoint.
  */
-public class DockerEntrypointTest 
-{
+public class DockerEntrypointTest {
     /**
-     * Rigorous Test :-)
+     * Check entry points and envars.
      */
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void testDockerEntrypoint() {
+
+        try {
+            DockerEntrypoint.main(null);
+
+        } catch (Exception ee) {
+            Logger.getLogger(this.getClass()).fatal("there was an exception: \n" + ee);
+            Assert.fail();
+        }
     }
 }

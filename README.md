@@ -16,8 +16,6 @@ docker-compose up
 
 ## To do
 
-* Write test.
-* Read and set folder paths from env vars or docker run command.
 * Enable versioning and version information.
 
 ## References

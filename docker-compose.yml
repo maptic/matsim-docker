@@ -3,6 +3,6 @@ services:
 
   matsim:
     build: .
-    environment: &env
-      - MATSIM_INPUT_FOLDER=lorem
-      - MATSIM_OUTPUT_FOLDER=ipsum
+    volumes:
+      - $PWD/test/input:/var/lib/matsim/data/input
+      - $PWD/test/output:/var/lib/matsim/data/output
