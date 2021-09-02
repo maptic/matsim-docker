@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+
+  matsim:
+    build: .
+    environment: &env
+      - MATSIM_INPUT_FOLDER=lorem
+      - MATSIM_OUTPUT_FOLDER=ipsum
