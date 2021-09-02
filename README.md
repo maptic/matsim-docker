@@ -1,5 +1,7 @@
 # MATSim Docker image example
 
+[![Docker Image CI](https://github.com/maptic/matsim-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/docker-image.yml)
+
 Example docker image of the MATSim open-source framework.
 
 ## How to
