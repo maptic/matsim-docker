@@ -1,4 +1,4 @@
-# MATSim Docker image example
+# MATSim Docker image
 
 [![Java CI with Maven](https://github.com/maptic/matsim-docker/actions/workflows/maven.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/maven.yml)
 [![Docker Image CI](https://github.com/maptic/matsim-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/docker-image.yml)
