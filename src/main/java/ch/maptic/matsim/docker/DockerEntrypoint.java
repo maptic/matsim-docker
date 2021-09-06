@@ -14,19 +14,23 @@ public class DockerEntrypoint {
 
     public static void main(String[] args) {
 
-        logger.info("Starting MATSim in Docker container.");
-
-        Config config;
+        logger.info(String.format("Starting MATSim %s in Docker container.", "13"));
+        String inputPath = Environment.getMatsimInputPath();
+        String outputPath = Environment.getMatsimOutputPath();
 
         if (args == null || args.length == 0 || args[0] == null) {
-            config = ConfigUtils.loadConfig(Environment.getMatsimInputPath() + "/config.xml");
-            config.controler().setOutputDirectory(Environment.getMatsimOutputPath());
-            config.controler().setOverwriteFileSetting(OverwriteFileSetting.deleteDirectoryIfExists);
+            args = new String[] { String.format("%s/%s", inputPath, "config.xml") };
         } else {
-            config = ConfigUtils.loadConfig(args);
+            args[0] = String.format("%s/%s", inputPath, args[0]);
         }
 
+        logger.info(String.format("Loading config with args: %s", String.join(", ", args)));
+        Config config = ConfigUtils.loadConfig(args);
+        config.controler().setOutputDirectory(outputPath);
+        config.controler().setOverwriteFileSetting(OverwriteFileSetting.deleteDirectoryIfExists);
+
         Scenario scenario = ScenarioUtils.loadScenario(config);
+
         Controler controler = new Controler(scenario);
         controler.run();
 

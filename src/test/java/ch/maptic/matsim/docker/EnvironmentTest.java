@@ -4,11 +4,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Unit test for DockerEntrypoint.
+ * Unit test for Environment.
  */
 public class EnvironmentTest {
     /**
-     * Check entry points and envars.
+     * Check envars.
      */
 
     @Test
