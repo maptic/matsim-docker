@@ -5,5 +5,5 @@ services:
     build: .
     command: ["config.xml", "--config:controler.lastIteration", "10"]
     volumes:
-      - $PWD/test/input:/var/lib/matsim/data/input
-      - $PWD/test/output:/var/lib/matsim/data/output
+      - ${PWD}/test/input:/opt/matsim/data/input
+      - ${PWD}/test/output:/opt/matsim/data/output

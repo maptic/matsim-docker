@@ -14,7 +14,7 @@ public class DockerEntrypoint {
 
     public static void main(String[] args) {
 
-        logger.info(String.format("Starting MATSim %s in Docker container.", "13"));
+        logger.info(String.format("Starting MATSim %s in Docker container.", Environment.getMatsimVersion()));
         String inputPath = Environment.getMatsimInputPath();
         String outputPath = Environment.getMatsimOutputPath();
 

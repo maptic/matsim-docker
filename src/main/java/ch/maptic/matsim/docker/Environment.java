@@ -14,6 +14,10 @@ public class Environment {
         return getEnvVar("MATSIM_OUTPUT");
     }
 
+    public static String getMatsimVersion() {
+        return getEnvVar("MATSIM_VERSION");
+    }
+
     private static String getEnvVar(String name) {
         String value = System.getenv(name);
         logger.info(String.format("Getting environment variable %s: %s.", name, value));
