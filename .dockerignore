@@ -1,0 +1,15 @@
+.DS_Store
+.classpath
+.dockerignore
+.factorypath
+.git
+.github
+.gitignore
+.project
+.settings
+.vscode
+README.md
+docker-compose.yml
+Dockerfile
+target
+test/output

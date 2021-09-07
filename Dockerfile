@@ -1,30 +1,38 @@
+ARG APP_DIR=/opt/matsim
+
 FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY test/input /home/app/test/input
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml clean package
+ARG APP_DIR
+WORKDIR ${APP_DIR}
+COPY . ./
+RUN apt-get update && apt-get install -y \
+    figlet \
+    && rm -rf /var/lib/apt/lists/*
+RUN mvn -f pom.xml -DskipTests clean package \
+    &&echo "$(mvn -q help:evaluate -Dexpression=project.version -DforceStdout=true)" > VERSION.txt \
+    && figlet -f slant "MATSim $(cat VERSION.txt)" > BANNER.txt \
+    && echo "Image build date: $(date --iso-8601=seconds)" >> BANNER.txt
 
 FROM openjdk:11-jre-slim
+ARG APP_DIR
 LABEL maintainer="Merlin Unterfinger <info@munterfinger.ch>"
+WORKDIR ${APP_DIR}
 
-ARG MATSIM_HOME=/var/lib/matsim
-ENV MATSIM_HOME=${MATSIM_HOME} \
-    MATSIM_INPUT=${MATSIM_HOME}/data/input \
-    MATSIM_OUTPUT=${MATSIM_HOME}/data/output
+COPY docker-entrypoint.sh ./
+COPY --from=build ${APP_DIR}/*.txt ./
+COPY --from=build ${APP_DIR}/target/*-jar-with-dependencies.jar ./matsim.jar
 
-RUN groupadd -r matsim --gid=999 \
-    # && useradd -r -g matsim --uid=999 --home-dir=${MATSIM_HOME} \
-    # && chown -R matsim:matsim ${MATSIM_HOME}
-    && mkdir -p ${MATSIM_HOME} \
-    && mkdir -p ${MATSIM_INPUT} \
-    && mkdir -p ${MATSIM_OUTPUT}
-
-VOLUME ${MATSIM_HOME}/data
+ENV MATSIM_HOME=${APP_DIR} \
+    MATSIM_INPUT=${APP_DIR}/data/input \
+    MATSIM_OUTPUT=${APP_DIR}/data/output
 
 RUN apt-get update && apt-get install -y \
     libfreetype6 \
     libfontconfig1 \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p ${MATSIM_INPUT} \
+    && mkdir -p ${MATSIM_OUTPUT} \
+    && export MATSIM_VERSION="$(cat VERSION.txt)"
 
-COPY --from=build /home/app/target/*-jar-with-dependencies.jar /usr/local/lib/matsim.jar
-ENTRYPOINT ["java","-jar","/usr/local/lib/matsim.jar"]
+VOLUME ${APP_DIR}/data
+
+ENTRYPOINT ["./docker-entrypoint.sh", "java", "-jar", "matsim.jar"]
