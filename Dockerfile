@@ -3,7 +3,7 @@ ARG APP_DIR=/opt/matsim
 FROM maven:3.6.0-jdk-11-slim AS build
 ARG APP_DIR
 WORKDIR ${APP_DIR}
-COPY . .
+COPY . ./
 RUN apt-get update && apt-get install -y \
     figlet \
     && rm -rf /var/lib/apt/lists/*
@@ -17,9 +17,9 @@ ARG APP_DIR
 LABEL maintainer="Merlin Unterfinger <info@munterfinger.ch>"
 WORKDIR ${APP_DIR}
 
-COPY docker-entrypoint.sh .
-COPY --from=build ${APP_DIR}/*.txt .
-COPY --from=build ${APP_DIR}/target/*-jar-with-dependencies.jar matsim.jar
+COPY docker-entrypoint.sh ./
+COPY --from=build ${APP_DIR}/*.txt ./
+COPY --from=build ${APP_DIR}/target/*-jar-with-dependencies.jar ./matsim.jar
 
 ENV MATSIM_HOME=${APP_DIR} \
     MATSIM_INPUT=${APP_DIR}/data/input \
