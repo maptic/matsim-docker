@@ -14,10 +14,11 @@ public class DockerEntrypoint {
 
     public static void main(String[] args) {
 
-        logger.info(String.format("Starting MATSim %s in Docker container.", Environment.getMatsimVersion()));
         String inputPath = Environment.getMatsimInputPath();
         String outputPath = Environment.getMatsimOutputPath();
+        String matsimVersion = Environment.getMatsimVersion();
 
+        logger.info(String.format("Starting MATSim %s in Docker container.", matsimVersion));
         if (args == null || args.length == 0 || args[0] == null) {
             args = new String[] { String.format("%s/%s", inputPath, "config.xml") };
         } else {

@@ -8,7 +8,6 @@
   <version>13.0</version>
 
   <name>matsim-docker</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.maptic.ch</url>
 
   <properties>
