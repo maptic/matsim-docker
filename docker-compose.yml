@@ -1,11 +1,17 @@
 version: "3.9"
 services:
-
   matsim:
     build: .
-    command: ["config.xml", "--config:controler.lastIteration", "10"]
+    command:
+    - config.xml
+    - --config:controler.lastIteration
+    - "10"
     environment:
-      - MATSIM_OUTPUT_OVERWRITE=true
+      MATSIM_OUTPUT_OVERWRITE: "true"
     volumes:
-      - ${PWD}/test/input:/opt/matsim/data/input
-      - ${PWD}/test/output:/opt/matsim/data/output
+    - type: bind
+      source: ${PWD}/test/input
+      target: /opt/matsim/data/input
+    - type: bind
+      source: ${PWD}/test/output
+      target: /opt/matsim/data/output

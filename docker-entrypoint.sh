@@ -3,10 +3,10 @@
 
 set -e
 
-export MATSIM_VERSION="$(cat VERSION.txt)"
+export MATSIM_VERSION="$(cat resources/VERSION.txt)"
 
 _print_header() {
-    header_text="$(cat BANNER.txt)
+    header_text="$(cat resources/BANNER.txt)
 
 Environment:
 $(env -0 | sort -z | tr '\0  ' '\n' | grep MATSIM | awk '{print "  ", $0}')"
