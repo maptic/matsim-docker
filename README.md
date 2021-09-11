@@ -33,6 +33,6 @@ docker-compose up
 
 ## References
 
-* [DockerHub](https://hub.docker.com/repository/docker/maptic/matsim)
+* [DockerHub](https://hub.docker.com/r/maptic/matsim)
 * [MATSim Libs](https://github.com/matsim-org/matsim-libs)
 * [MATSim Example](https://github.com/matsim-org/matsim-example-project)
