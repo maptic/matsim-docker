@@ -24,7 +24,7 @@ To pull the latest image, refer to the `main` branch.
 
 ## Local build and development
 
-Set the input and output path in the `docker-compose.yml`, then run:
+Set the input and output path in the `docker-compose.yml` file, then run:
 
 ```sh
 docker-compose build
