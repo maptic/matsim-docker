@@ -1,5 +1,9 @@
 # Changelog
 
+## v13.0-2
+
+* GitHub Actions: Publish image on release, also build image on other branches than main.
+
 ## v13.0-1
 
 Initial release of a containerized MATSim 13.0. The dash in the image tag version specifies the version of the image. To pull the latest image, refer to the `main` branch.
