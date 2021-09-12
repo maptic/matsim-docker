@@ -1,7 +1,8 @@
 # MATSim Docker image
 
-[![Java CI with Maven](https://github.com/maptic/matsim-docker/actions/workflows/maven.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/maven.yml)
-[![Docker Image CI](https://github.com/maptic/matsim-docker/actions/workflows/docker-image.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/docker-image.yml)
+[![Docker Publish](https://github.com/maptic/matsim-docker/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/docker-publish.yml)
+[![Java CI with Maven](https://github.com/maptic/matsim-docker/actions/workflows/maven-ci.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/maven-ci.yml)
+[![Docker Image CI](https://github.com/maptic/matsim-docker/actions/workflows/docker-ci.yml/badge.svg)](https://github.com/maptic/matsim-docker/actions/workflows/docker-ci.yml)
 
 A docker image of the MATSim open-source framework:
 
