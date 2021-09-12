@@ -5,7 +5,7 @@
 
   <groupId>ch.maptic</groupId>
   <artifactId>matsim-docker</artifactId>
-  <version>13.0-1</version>
+  <version>13.0-2</version>
 
   <name>matsim-docker</name>
   <url>http://www.maptic.ch</url>
