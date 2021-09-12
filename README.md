@@ -17,10 +17,10 @@ Run MATSim inside a container:
 docker run \
     -v <host/path/to/input>:/opt/matsim/data/input:ro \
     -v <host/path/to/output>:/opt/matsim/data/output \
-    maptic/matsim:main <optional MATSIM-ARGS>
+    maptic/matsim:latest <optional MATSIM-ARGS>
 ```
 
-To pull the latest image, refer to the `main` tag.
+To pull the recent version of the image, refer to the `latest` tag.
 
 ## Local build and development
 
@@ -33,6 +33,6 @@ docker-compose up
 
 ## References
 
-* [DockerHub](https://hub.docker.com/r/maptic/matsim)
+* [DockerHub maptic/matsim](https://hub.docker.com/r/maptic/matsim)
 * [MATSim Libs](https://github.com/matsim-org/matsim-libs)
 * [MATSim Example](https://github.com/matsim-org/matsim-example-project)
