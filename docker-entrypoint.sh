@@ -36,7 +36,7 @@ empty. Mount an empty folder or pass the environment
 variable MATSIM_OUTPUT_OVERWRITE=true to the container:
 
     docker run \\
-        -env MATSIM_OUTPUT_OVERWRITE=true \\
+        -e MATSIM_OUTPUT_OVERWRITE=true \\
         [...] \\
         maptic/matsim:latest
 
