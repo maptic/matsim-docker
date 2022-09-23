@@ -5,7 +5,7 @@
 
   <groupId>ch.maptic</groupId>
   <artifactId>matsim-docker</artifactId>
-  <version>13.0-2</version>
+  <version>14.0-1</version>
 
   <name>matsim-docker</name>
   <url>http://www.maptic.ch</url>
@@ -14,7 +14,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <matsim.version>13.0</matsim.version>
+    <matsim.version>14.0</matsim.version>
   </properties>
 
   <repositories>
