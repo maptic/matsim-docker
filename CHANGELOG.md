@@ -3,6 +3,7 @@
 ## v14.0-1
 
 * Bump MATsim version to 14.0.
+* Configured dependabot.
 
 ## v13.0-2
 
