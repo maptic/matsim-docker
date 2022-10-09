@@ -1,6 +1,6 @@
 ARG APP_DIR=/opt/matsim
 
-FROM maven:3.6.0-jdk-11-slim AS build
+FROM maven:3.8.6-openjdk-18-slim AS build
 ARG APP_DIR
 WORKDIR ${APP_DIR}
 COPY . ./
@@ -12,9 +12,9 @@ RUN mvn -f pom.xml -DskipTests clean package \
     && figlet -f slant "MATSim $(cat VERSION.txt)" > BANNER.txt \
     && echo "Image build date: $(date --iso-8601=seconds)" >> BANNER.txt
 
-FROM openjdk:11-jre-slim
+FROM openjdk:18-slim
 ARG APP_DIR
-LABEL maintainer="Merlin Unterfinger <info@munterfinger.ch>"
+LABEL maintainer="Merlin Unterfinger <merlin.unterfinger@maptic.ch>"
 WORKDIR ${APP_DIR}
 COPY docker-entrypoint.sh ./
 COPY --from=build ${APP_DIR}/*.txt ./resources/

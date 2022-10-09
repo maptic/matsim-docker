@@ -1,6 +1,7 @@
 package ch.maptic.matsim.docker;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
@@ -10,7 +11,7 @@ import org.matsim.core.scenario.ScenarioUtils;
 
 public class DockerEntrypoint {
 
-    static Logger logger = Logger.getLogger(DockerEntrypoint.class);
+    private static final Logger logger = LogManager.getLogger(DockerEntrypoint.class);
 
     public static void main(String[] args) {
 
@@ -18,14 +19,14 @@ public class DockerEntrypoint {
         String outputPath = Environment.getMatsimOutputPath();
         String matsimVersion = Environment.getMatsimVersion();
 
-        logger.info(String.format("Starting MATSim %s in Docker container.", matsimVersion));
+        logger.info("Starting MATSim {} in Docker container.", matsimVersion);
         if (args == null || args.length == 0 || args[0] == null) {
             args = new String[] { String.format("%s/%s", inputPath, "config.xml") };
         } else {
             args[0] = String.format("%s/%s", inputPath, args[0]);
         }
 
-        logger.info(String.format("Loading config with args: %s", String.join(", ", args)));
+        logger.info("Loading config with args: {}", String.join(", ", args));
         Config config = ConfigUtils.loadConfig(args);
         config.controler().setOutputDirectory(outputPath);
         config.controler().setOverwriteFileSetting(OverwriteFileSetting.deleteDirectoryIfExists);

@@ -1,7 +1,8 @@
 package ch.maptic.matsim.docker;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for Environment.
@@ -13,7 +14,7 @@ public class EnvironmentTest {
 
     @Test
     public void testEnvironment() {
-        Assert.assertEquals("test/input", Environment.getMatsimInputPath());
-        Assert.assertEquals("test/output", Environment.getMatsimOutputPath());
+        assertEquals("test/input", Environment.getMatsimInputPath());
+        assertEquals("test/output", Environment.getMatsimOutputPath());
     }
 }

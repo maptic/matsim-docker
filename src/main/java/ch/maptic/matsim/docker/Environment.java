@@ -1,10 +1,14 @@
 package ch.maptic.matsim.docker;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 class Environment {
 
-    static Logger logger = Logger.getLogger(Environment.class);
+    private static final Logger logger = LogManager.getLogger(Environment.class);
+
+    private Environment() {
+    }
 
     public static String getMatsimInputPath() {
         return getEnvVar("MATSIM_INPUT");
@@ -20,7 +24,7 @@ class Environment {
 
     private static String getEnvVar(String name) {
         String value = System.getenv(name);
-        logger.debug(String.format("Getting environment variable %s: %s.", name, value));
+        logger.debug("Getting environment variable {}: {}.", name, value);
         return value;
     }
 }

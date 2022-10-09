@@ -1,8 +1,9 @@
 package ch.maptic.matsim.docker;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.apache.log4j.Logger;
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.apache.logging.log4j.LogManager;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit test for DockerEntrypoint.
@@ -18,8 +19,8 @@ public class DockerEntrypointTest {
             DockerEntrypoint.main(null);
 
         } catch (Exception ee) {
-            Logger.getLogger(this.getClass()).fatal("there was an exception: \n" + ee);
-            Assert.fail();
+            LogManager.getLogger(this.getClass()).fatal("there was an exception: \n" + ee);
+            fail();
         }
     }
 
@@ -30,8 +31,8 @@ public class DockerEntrypointTest {
             DockerEntrypoint.main(args);
 
         } catch (Exception ee) {
-            Logger.getLogger(this.getClass()).fatal("there was an exception: \n" + ee);
-            Assert.fail();
+            LogManager.getLogger(this.getClass()).fatal("there was an exception: \n" + ee);
+            fail();
         }
     }
 }
