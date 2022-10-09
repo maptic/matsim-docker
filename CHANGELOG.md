@@ -1,5 +1,10 @@
 # Changelog
 
+## 15.0-2022w40-1
+
+* Update to openjdk-18.
+* Bump MATSim version to 15.0.
+
 ## v14.0-1
 
 * Bump MATSim version to 14.0.
