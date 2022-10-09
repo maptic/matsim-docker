@@ -2,7 +2,7 @@
 
 ## 15.0-2022w40-1
 
-* Update to openjdk-18.
+* Update to JDK 18.
 * Bump MATSim version to 15.0.
 
 ## v14.0-1
