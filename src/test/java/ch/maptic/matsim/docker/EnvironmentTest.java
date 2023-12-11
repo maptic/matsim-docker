@@ -1,12 +1,9 @@
 package ch.maptic.matsim.docker;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for Environment.
- */
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class EnvironmentTest {
     /**
      * Check envars.

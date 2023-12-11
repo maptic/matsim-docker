@@ -1,13 +1,10 @@
 package ch.maptic.matsim.docker;
 
-import static org.junit.jupiter.api.Assertions.fail;
-
 import org.apache.logging.log4j.LogManager;
 import org.junit.jupiter.api.Test;
 
-/**
- * Unit test for DockerEntrypoint.
- */
+import static org.junit.jupiter.api.Assertions.fail;
+
 public class DockerEntrypointTest {
     /**
      * Check entry points and envars.
@@ -26,7 +23,7 @@ public class DockerEntrypointTest {
 
     @Test
     public void testDockerEntrypointArgs() {
-        String[] args = { "config.xml", "--config:controler.lastIteration", "1" };
+        String[] args = {"config.xml", "--config:controler.lastIteration", "1"};
         try {
             DockerEntrypoint.main(args);
 
