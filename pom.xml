@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <matsim.version>16.0-2024w07</matsim.version>
+        <matsim.version>16.0-2024w08</matsim.version>
     </properties>
 
     <repositories>
