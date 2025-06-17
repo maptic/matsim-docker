@@ -25,6 +25,7 @@ input files from the host to the conatiner:
         [...] \\
         maptic/matsim:latest
 
+Make sure the input directory has a file named config.xml
 Exiting."
     printf '%s\n' "$help_text_input"
 }
@@ -69,4 +70,11 @@ _print_header
 _check_input_directory
 _check_output_directory
 printf '%s\n' ""
-exec "$@"
+
+if [ "$1" = "java" ]; then
+    : "${JAVA_HEAP:=-Xms512m -Xmx2g}"
+    shift
+    exec java $JAVA_HEAP "$@"
+else
+    exec "$@"
+fi
